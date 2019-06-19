@@ -41,7 +41,23 @@ class TripController extends Controller
         return $trips;    
     }
 
+    public function getRiderCompletedTrips($id){
+        $trips = Trip::where('rider_id', '=', $id)
+                        ->where('delivery_status', '=', 1)->get(); 
+
+        return $trips;
+    }
+
     public function testTrips(){
         return ' i am working';
+    }
+
+    public function cancelTrip($id){
+        $trip = Trip::find($id); 
+
+        $trip->delivery_status = 0; 
+        $trip->save(); 
+
+        return 'successful Cancellation';
     }
 }
