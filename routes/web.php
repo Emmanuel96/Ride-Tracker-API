@@ -12,7 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return ;
 });
 
-Route::get('api/get/rider', 'HomeController@getRider'); 
+Route::get('api/trips/get/rider/{id}', 'TripController@getRiderTrips');
+
+Route::get('api/trips/get', 'TripController@getTrips'); 
+
+Route::get('api/trip/complete/{id}', 'TripController@completeTrip');
+
+Route::get('test/trips', 'TripController@testTrips');
+
+Route::post('api/trip/create', 'TripController@createTrip');

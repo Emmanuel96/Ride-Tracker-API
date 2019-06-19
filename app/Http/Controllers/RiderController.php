@@ -17,4 +17,13 @@ class RiderController extends Controller
         $rider = rider::find($id);
         return $rider; 
     }
+
+    public function getLocation(Request $request){
+
+    }
+
+    public function postLocation(){
+        return rider::get(); 
+    }
 }
+

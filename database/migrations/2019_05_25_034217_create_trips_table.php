@@ -23,7 +23,9 @@ class CreateTripsTable extends Migration
              * -1 - on it's way 
              *  1 - Delivered
              */ 
-            $table->integer('delivery_status'); 
+            $table->integer('delivery_status')->default('-1'); 
+            $table->string('pickup_time'); 
+            $table->string('delivery_time');
             $table->integer('rider_id'); 
             $table->timestamps();
         });
@@ -32,6 +34,10 @@ class CreateTripsTable extends Migration
     public function boot()
     {
         Schema::defaultStringLength(191);
+    }
+
+    public function down(){
+        Schema::drop('trips'); 
     }
 
 

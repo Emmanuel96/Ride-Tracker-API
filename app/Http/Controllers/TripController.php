@@ -3,28 +3,45 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Trips; 
+use App\Trip;
 
 class TripController extends Controller
 {
     public function getTrips(){
-        $trips = Trips::all(); 
+        $trips = Trip::all(); 
         return $trips; 
     }
 
     public function getRiderTrips($id){
-        $trips = Trips::where('rider_id' , '=', $id);
+        $trips = Trip::where('rider_id' , '=', $id)
+                ->where('delivery_status', '!=', 1)->get();
 
         return $trips; 
     }
 
+    public function completeTrip($id){
+        $trip = Trip::find($id); 
+
+        $trip->delivery_status = '1'; 
+        $trip->save(); 
+
+        return 'Trip Successfully Edited'; 
+    }
+
     public function createTrip(Request $request){
-        $trips = Trips::create([
-            'pick_up_location'  => $request->pick_up_location, 
+        $trips = Trip::create([
+            'pickup_time' => $request->pickup_location,
+            'pick_up_location'  => $request->pickup_location, 
             'delivery_location' => $request->delivery_location, 
+            'delivery_time' => $request->delivery_time,
             'rider_id' => $request->rider_id
         ]);
+        return 'Successful';
         
-        return $trips; 
+        return $trips;    
+    }
+
+    public function testTrips(){
+        return ' i am working';
     }
 }
