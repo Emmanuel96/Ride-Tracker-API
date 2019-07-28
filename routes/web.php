@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return ;
+    return 'home';
 });
 
 Route::get('api/trips/get', 'TripController@getTrips'); 
@@ -27,5 +27,9 @@ Route::get('test/trips', 'TripController@testTrips');
 
 Route::post('api/trip/create', 'TripController@createTrip');
 
-Route::get('api/trip/cancel', 'TripController@cancelTrip');
+Route::get('api/trip/cancel/{id}', 'TripController@cancelTrip');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
