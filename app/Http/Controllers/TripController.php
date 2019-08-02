@@ -12,6 +12,11 @@ class TripController extends Controller
         return $trips; 
     }
 
+    public function getTrip($id){
+        $trip = Trip::find($id); 
+        return $trip; 
+    }
+
     public function getRiderTrips($id){
         $trips = Trip::where('rider_id' , '=', $id)
                 ->where('delivery_status', '!=', 1)

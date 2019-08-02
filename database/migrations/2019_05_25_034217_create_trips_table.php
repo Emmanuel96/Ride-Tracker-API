@@ -26,6 +26,8 @@ class CreateTripsTable extends Migration
             $table->integer('delivery_status')->default('-1'); 
             $table->string('pickup_time'); 
             $table->string('delivery_time');
+            $table->string('delivery_phone_number'); 
+            $table->string('pickup_phone_number');
             $table->integer('rider_id'); 
             $table->timestamps();
         });
