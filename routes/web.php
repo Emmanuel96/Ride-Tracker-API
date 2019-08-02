@@ -15,6 +15,8 @@ Route::get('/', function () {
     return 'home';
 });
 
+Route::get('api/trips/get/{id}', 'TripController@getTrip');
+
 Route::get('api/trips/get', 'TripController@getTrips'); 
 
 Route::get('api/trips/get/rider/{id}', 'TripController@getRiderTrips');
