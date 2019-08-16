@@ -14,13 +14,13 @@ class LoginController extends Controller
             // Authentication passed...
             $response = [
                 'auth_user'=>Auth::user(), 
-                'text' => 'User has been authenicated successfully'
+                'text' => 'User has been authenticated successfully'
             ];
             return $response;  
         }
         else{
             $response = [
-                'auth_user' => null, 
+                'auth_user' => 'Credentials do not match', 
                 'text' => 'Credentials do not match'
             ];
         }
