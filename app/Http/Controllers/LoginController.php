@@ -19,7 +19,10 @@ class LoginController extends Controller
             return $response;  
         }
         else{
-            return "Credentials don't match";
+            $response = [
+                'auth_user' => null, 
+                'text' => 'Credentials do not match'
+            ];
         }
     }
 }
