@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class RiderTableSeeder extends Seeder
 {
@@ -17,7 +18,7 @@ class RiderTableSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('user')->insert([
+        DB::table('users')->insert([
             'email' => 'mike@wailodile.com', 
             'password' => app('hash')->make('mike96'),
             'name' => 'Mike Peter',
@@ -29,7 +30,7 @@ class RiderTableSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('user')->insert([
+        DB::table('users')->insert([
             'email' => 'emmanuel@wailodile.com',
             'password' => app('hash')->make('emmanuel96'),
             'name' => 'Emmanuel Audu', 
