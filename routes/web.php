@@ -34,6 +34,6 @@ Route::get('api/trip/cancel/{id}', 'TripController@cancelTrip');
 
 // Auth::routes();
 
-Route::post('/login', 'LoginController@postLogin')->name('login'); 
+Route::post('/api/login', 'LoginController@postLogin')->name('login'); 
 
 Route::get('/home', 'HomeController@index')->name('home');
