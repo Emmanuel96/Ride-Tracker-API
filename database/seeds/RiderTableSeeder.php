@@ -12,6 +12,7 @@ class RiderTableSeeder extends Seeder
     public function run()
     {
         DB::table('rider')->insert([
+            'rider_email' => 'mike@wailodile.com',
             'rider_first_name' => 'Mike', 
             'rider_password' => app('hash')->make('mike96'), 
             'rider_last_name' => 'Peter', 
@@ -19,6 +20,7 @@ class RiderTableSeeder extends Seeder
         ]);
 
         DB::table('rider')->insert([
+            'rider_email' =>'emmanuel@wailodile.com',
             'rider_first_name' => 'Emmanuel', 
             'rider_password' => app('hash')->make('emma96'), 
             'rider_last_name' => 'Audu', 
