@@ -15,20 +15,20 @@ class CreateTripsTable extends Migration
     {
         Schema::create('trips', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('pick_up_location'); 
+            $table->string('pick_up_location');
             $table->string('delivery_location');
-            /** 
-             * Delivery status values 
+            /**
+             * Delivery status values
              *  0 - still not picked
-             * -1 - on it's way 
+             * -1 - on it's way
              *  1 - Delivered
-             */ 
-            $table->integer('delivery_status')->default('-1'); 
-            $table->string('pickup_time'); 
+             */
+            $table->integer('delivery_status')->default('-1');
+            $table->string('pickup_time');
             $table->string('delivery_time')->nullable();
-            $table->string('delivery_phone_number')->nullable(); 
+            $table->string('delivery_phone_number')->nullable();
             $table->string('pickup_phone_number')->nullable();
-            $table->integer('rider_id'); 
+            $table->integer('rider_id');
             $table->timestamps();
         });
     }
@@ -39,7 +39,7 @@ class CreateTripsTable extends Migration
     }
 
     public function down(){
-        Schema::drop('trips'); 
+        Schema::drop('trips');
     }
 
 

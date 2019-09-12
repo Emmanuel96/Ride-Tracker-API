@@ -8,14 +8,18 @@ use App\Trip;
 class TripController extends Controller
 {
     public function getTrips(){
-        $trips = Trip::all(); 
-        return $trips; 
+        $trips = Trip::all();
+        return $trips;
     }
 
     public function getTrip($id){
-        $trip = Trip::find($id); 
-        return $trip; 
+        $trip = Trip::find($id);
+        return $trip;
     }
+
+    // 0 -- cancelled trip
+    // -1 -- new trip
+    // 1 -- completed trip
 
     public function getRiderTrips($id){
         $trips = Trip::where('rider_id' , '=', $id)
@@ -23,32 +27,33 @@ class TripController extends Controller
                 ->where('delivery_status','!=', 0)
                 ->get();
 
-        return $trips; 
+        return $trips;
     }
 
     public function completeTrip($id){
-        $trip = Trip::find($id); 
+        $trip = Trip::find($id);
 
-        $trip->delivery_status = '1'; 
-        $trip->save(); 
+        $trip->delivery_status = '1';
+        $trip->save();
 
-        return 'Trip Successfully Edited'; 
+        return 'Trip Successfully Edited';
     }
 
     public function createTrip(Request $request){
         $trip = Trip::create([
-            'pickup_time' => $request->pickup_location,
-            'pick_up_location'  => $request->pickup_location, 
-            'delivery_location' => $request->delivery_location, 
+            'pickup_time' => $request->pickup_time,
+            'pick_up_location'  => $request->pickup_location,
+            'delivery_location' => $request->delivery_location,
             'delivery_time' => $request->delivery_time,
-            'rider_id' => $request->rider_id
-        ]);        
-        return $trip;    
+            'rider_id' => $request->rider_id,
+            'delivery_phone_number' => '07037699184'
+        ]);
+        return $trip;
     }
 
     public function getRiderCompletedTrips($id){
         $trips = Trip::where('rider_id', '=', $id)
-                        ->where('delivery_status', '=', 1)->get(); 
+                        ->where('delivery_status', '=', 1)->get();
         return $trips;
     }
 
@@ -57,10 +62,10 @@ class TripController extends Controller
     }
 
     public function cancelTrip($id){
-        $trip = Trip::find($id); 
+        $trip = Trip::find($id);
 
-        $trip->delivery_status = 0; 
-        $trip->save(); 
+        $trip->delivery_status = 0;
+        $trip->save();
 
         return 'successful Cancellation';
     }
