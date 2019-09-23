@@ -41,7 +41,7 @@ class TripController extends Controller
 
     public function createTrip(Request $request){
         $trip = Trip::create([
-            'pickup_time' => $request->pickup_time,
+            'pickup_date_time' => $request->pickup_time,
             'pick_up_location'  => $request->pickup_location,
             'delivery_location' => $request->delivery_location,
             'delivery_time' => $request->delivery_time,

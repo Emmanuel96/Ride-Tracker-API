@@ -24,7 +24,7 @@ class CreateTripsTable extends Migration
              *  1 - Delivered
              */
             $table->integer('delivery_status')->default('-1');
-            $table->string('pickup_time');
+            $table->dateTime('pickup_date_time');
             $table->string('delivery_time')->nullable();
             $table->string('delivery_phone_number')->nullable();
             $table->string('pickup_phone_number')->nullable();
