@@ -22,7 +22,7 @@ class TripController extends Controller
     // 1 -- completed trip
 
     public function getRiderTrips($id){
-        $trips = Trip::where('rider_id' , '=', $id)
+        $trips = Trip::where('trip_rider_id' , '=', $id)
                 ->where('delivery_status', '!=', 1)
                 ->where('delivery_status','!=', 0)
                 ->get();
@@ -45,14 +45,14 @@ class TripController extends Controller
             'pick_up_location'  => $request->pickup_location,
             'delivery_location' => $request->delivery_location,
             'delivery_time' => $request->delivery_time,
-            'rider_id' => $request->rider_id,
+            'trip_rider_id' => $request->rider_id,
             'delivery_phone_number' => '07037699184'
         ]);
         return $trip;
     }
 
     public function getRiderCompletedTrips($id){
-        $trips = Trip::where('rider_id', '=', $id)
+        $trips = Trip::where('trip_rider_id', '=', $id)
                         ->where('delivery_status', '=', 1)->get();
         return $trips;
     }

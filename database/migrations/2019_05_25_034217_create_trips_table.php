@@ -14,7 +14,7 @@ class CreateTripsTable extends Migration
     public function up()
     {
         Schema::create('trips', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('trip_id');
             $table->string('pick_up_location');
             $table->string('delivery_location');
             /**
@@ -28,7 +28,7 @@ class CreateTripsTable extends Migration
             $table->string('delivery_time')->nullable();
             $table->string('delivery_phone_number')->nullable();
             $table->string('pickup_phone_number')->nullable();
-            $table->integer('rider_id');
+            $table->integer('trip_rider_id');
             $table->timestamps();
         });
     }

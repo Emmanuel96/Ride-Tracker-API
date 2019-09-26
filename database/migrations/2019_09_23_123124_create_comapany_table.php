@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRiderTable extends Migration
+class CreateComapanyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateRiderTable extends Migration
      */
     public function up()
     {
-        Schema::create('rider', function (Blueprint $table) {
-            $table->bigIncrements('rider_id');
-            $table->integer('rider_user_id');
+        Schema::create('company', function (Blueprint $table) {
+            $table->bigIncrements('company_id');
+            $table->string('company_name');
+            $table->string('company_address');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateRiderTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rider');
+        Schema::dropIfExists('company');
     }
 }

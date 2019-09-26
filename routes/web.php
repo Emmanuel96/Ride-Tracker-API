@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::get('api/trips/get/{id}', 'TripController@getTrip');
 
-Route::get('api/trips/get', 'TripController@getTrips'); 
+Route::get('api/trips/get', 'TripController@getTrips');
 
 Route::get('api/trips/get/rider/{id}', 'TripController@getRiderTrips');
 
@@ -31,9 +31,13 @@ Route::post('api/trip/create', 'TripController@createTrip');
 
 Route::get('api/trip/cancel/{id}', 'TripController@cancelTrip');
 
+Route::post('api/rider/create', 'RiderController@createRider');
+
+Route::get('api/riders/get', 'RiderController@getRiders');
+
 
 // Auth::routes();
 
-Route::post('/api/login', 'LoginController@postLogin')->name('login'); 
+Route::post('/api/login', 'LoginController@postLogin')->name('login');
 
 Route::get('/home', 'HomeController@index')->name('home');
