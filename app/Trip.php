@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Trip extends Model
 {
     protected $table = "trips";
-    protected $primary_key = "id";
+    protected $primary_key = "trip_id";
 
     public $fillable=[
         'pickup_date_time',
@@ -15,7 +15,7 @@ class Trip extends Model
         'delivery_location',
         'delivery_time',
         'delivery_status',
-        'rider_id'
+        'trip_rider_id'
     ];
 
 }
