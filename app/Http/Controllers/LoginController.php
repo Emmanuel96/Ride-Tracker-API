@@ -10,7 +10,7 @@ class LoginController extends Controller
     public function postLogin(Request $request){
         $credentials = $request->only('email', 'password');
 
-        info($request->password);
+        info('This is the password: '.$request->password);
         if (Auth::attempt(['user_email' => $request->email, 'user_password' => $request->password])) {
             // Authentication passed...
             $response = [
