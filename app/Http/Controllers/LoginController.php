@@ -19,7 +19,7 @@ class LoginController extends Controller
         // return User::where('user_email', '=', $email)
         //             ->where('user_password', '=', $password)->first();
 
-        if (Auth::attempt(['user_email' => $email, 'password' => 'emmanuel96'])) {
+        if (Auth::attempt(['user_email' => $email, 'password' => $password])) {
             // Authentication passed...
             $user = Auth::user();
             info($user);
