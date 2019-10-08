@@ -10,6 +10,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $table = "users";
     protected $primaryKey = "user_id";
     /**
      * The attributes that are mass assignable.
@@ -17,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'user_name', 'user_email', 'user_password', 'user_first_name', 'user_last_name', 'user_role', 'user_company_id'
+        'user_name', 'user_email', 'user_first_name', 'user_last_name', 'user_role', 'user_company_id'
     ];
 
     /**
@@ -37,4 +38,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getAuthPassword() {
+        return $this->user_password;
+     }
 }
