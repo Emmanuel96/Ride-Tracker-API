@@ -13,6 +13,8 @@ class Trip extends Model
         'pickup_date_time',
         'pick_up_location',
         'delivery_location',
+        'delivery_phone_number',
+        'pickup_phone_number',
         'delivery_time',
         'delivery_status',
         'trip_rider_id'
