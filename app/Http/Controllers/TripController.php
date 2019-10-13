@@ -47,7 +47,7 @@ class TripController extends Controller
             'delivery_time' => $request->delivery_time,
             'trip_rider_id' => $request->rider_id,
             'delivery_phone_number' => $request->delivery_phone_number,
-            'picup_phone_number' => $request->pickup_phone_number,
+            'pickup_phone_number' => $request->pickup_phone_number,
         ]);
         return $trip;
     }
