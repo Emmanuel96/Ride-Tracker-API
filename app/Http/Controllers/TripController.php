@@ -24,7 +24,7 @@ class TripController extends Controller
     public function getRiderTrips($id){
         $trips = Trip::where('trip_rider_id' , '=', $id)
                 ->where('delivery_status', '!=', 1)
-                ->where('delivery_status','!=', 0)
+                ->where('delivery_status','!=', -2)
                 ->get();
 
         return $trips;
@@ -37,6 +37,15 @@ class TripController extends Controller
         $trip->save();
 
         return 'Trip Successfully Edited';
+    }
+
+    public function pickUp($id){
+        $trip = Trip::find($id);
+
+        $trip->delivery_status = '0';
+        $trip->save();
+
+        return 'Successful Pick up';
     }
 
     public function createTrip(Request $request){
@@ -65,7 +74,7 @@ class TripController extends Controller
     public function cancelTrip($id){
         $trip = Trip::find($id);
 
-        $trip->delivery_status = 0;
+        $trip->delivery_status = -2;
         $trip->save();
 
         return 'successful Cancellation';

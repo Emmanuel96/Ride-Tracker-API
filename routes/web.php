@@ -35,6 +35,7 @@ Route::post('api/rider/create', 'RiderController@createRider');
 
 Route::get('api/riders/get', 'RiderController@getRiders');
 
+Route::get('api/trip/pickup/{id}', 'TripController@pickUp');
 
 // Auth::routes();
 
