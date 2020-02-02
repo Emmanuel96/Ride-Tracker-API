@@ -17,6 +17,7 @@ class CreateComapanyTable extends Migration
             $table->bigIncrements('company_id');
             $table->string('company_name');
             $table->string('company_address');
+            $table->integer('company_status')->default(1);
             $table->timestamps();
         });
     }

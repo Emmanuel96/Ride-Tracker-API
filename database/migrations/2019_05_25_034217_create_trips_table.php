@@ -29,6 +29,7 @@ class CreateTripsTable extends Migration
             $table->string('delivery_phone_number')->nullable();
             $table->string('pickup_phone_number')->nullable();
             $table->integer('trip_rider_id');
+            $table->integer('trip_company_id');
             $table->timestamps();
         });
     }
@@ -38,7 +39,8 @@ class CreateTripsTable extends Migration
         Schema::defaultStringLength(191);
     }
 
-    public function down(){
+    public function down()
+    {
         Schema::drop('trips');
     }
 

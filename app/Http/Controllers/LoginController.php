@@ -17,6 +17,7 @@ class LoginController extends Controller
         $email = $request->email;
         $password = $request->password;
 
+        //when you see this --investigate on how password instead of user_password works here
         if (Auth::attempt(['user_email' => $email, 'password' => $password])) {
             // Authentication passed...
             $user = Auth::user();

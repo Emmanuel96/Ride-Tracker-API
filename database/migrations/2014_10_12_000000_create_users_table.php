@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->integer('user_role');
             $table->integer('user_company_id');
             // $table->integer('rider_id');
+            $table->integer('user_status')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });
